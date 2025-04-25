@@ -1,0 +1,9 @@
+name: env_treinamento
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - httpx
+  - beautifulsoup4
+  

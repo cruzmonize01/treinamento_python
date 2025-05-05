@@ -14,7 +14,9 @@ def extrair_infos(html):
         titulo = noticia.find("h2").text
         tag= noticia.find("a")
         link = tag["href"] if tag else ("sem link")
-        data = noticia.find("time").text.strip() 
+        data = noticia.find("div", class_=.l-list__text").find("span").text.strip()
+        
+     
         
         print(titulo)
         print(link)

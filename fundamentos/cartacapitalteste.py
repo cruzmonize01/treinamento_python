@@ -14,7 +14,23 @@ def extrair_conteudo(conteudo):
     #corpo da materia
     corpo_tag=conteudo.find("div", class_="s-content__heading")
     if corpo_tag:
-        paragrafos = corpo_tag.find_all 
+        paragrafos = corpo_tag.find_all ("p")
+        corpo_texto = "/n".join( [ p.text.strip() for p in paragrafos ])
+    else:
+        corpo_texto = "Conteúdo não encontrado"
+
+    #autoria
+    try:
+        autoria = conteudo.find_all("strong") [1].text.strip()
+    except IndexError:
+        autoria = "Autoria não encontrada"
+
+    #data
+    try:
+        data = conteudo.find("time").text.strip()
+    except IndexError:
+        data =  "Data não encontrada"
+
 def extrair_infos(html):
     tag_lista_noticias = html.find("section", attrs={"class": "l-list__list"}).find_all("a",attrs= {"class":"l-list__item"})
     print(f"quantas noticias encontrei? {len(tag_lista_noticias)}")
@@ -34,10 +50,15 @@ def extrair_infos(html):
         print(link)
         print(data)
 
-        
+
+
+
+
         conteudo = acessar_pagina(link)
-        print(conteudo)
+    
         """
+        print(conteudo)
+        
         try:
             autoria = conteudo.find_all("strong")[1].text
             print(autoria)

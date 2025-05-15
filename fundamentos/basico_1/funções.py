@@ -48,12 +48,12 @@ from nome_modulo import funcao_do_modulo
 
 def main():
   '''função principal responsável por chamar as demais funções do script e/ou executar o código''' 
-  <sequencia de instrucoes> 
+  #<sequencia de instrucoes> 
 
 #declaração das demais funções
 def nome_da_funcao(parametros): 
     '''docstrings'''
-    <sequencia de instrucoes> 
+    #<sequencia de instrucoes> 
 
 #início da execução do script
 if __name__ == "__main__":

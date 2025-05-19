@@ -56,7 +56,7 @@ def extrair_infos(html):
 
         conteudo = acessar_pagina(link)
     
-        """
+        
         print(conteudo)
         
         try:
@@ -64,9 +64,9 @@ def extrair_infos(html):
             print(autoria)
         except IndexError:
             print("Autoria não encontrada.")
-        
+        '''
         print("###")
-#agora adcionamos mais infos
+        #agora adcionamos mais infos
 
         try:
             subtitulo = conteudo.find("h2").text.strip()
@@ -78,7 +78,7 @@ def extrair_infos(html):
             data =conteudo.find("time").text.strip()
         except IndexError:
             print ("data não encontrada")"""
-
+'''
 def main():
     link = "https://www.cartacapital.com.br/mais-recentes/page/3"
     html = acessar_pagina(link)

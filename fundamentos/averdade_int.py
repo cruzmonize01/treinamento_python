@@ -19,14 +19,37 @@ def extrair_infos(html):
         print(link)
         print (data)
         conteudo=acessar_pagina(link)
-        autoria=conteudo.find_all("strong")[1]
+        autoria=conteudo.find_all("strong")
         print(autoria)
         print ("###")
+
+
+
+
+        conteudo = acessar_pagina(link)
+    
+        
+        print(conteudo)
+        
+        try:
+            autoria = conteudo.find_all("strong")[1].text
+            print(autoria)
+        except IndexError:
+            print("Autoria não encontrada.")
+
+
+
 def main():
     link="https://averdade.org.br/category/internacional/"
     acessar=acessar_pagina(link)
     extrair=extrair_infos(acessar)
     #https://averdade.org.br/category/brasil/page/2/
 
+
+
+     
+
+
 if __name__ == "__main__":
     main()
+

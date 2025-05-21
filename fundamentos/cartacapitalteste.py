@@ -25,7 +25,8 @@ def extrair_infos(html):
         conteudo = acessar_pagina(link)
         autoria=conteudo.find("div", attrs={"class": "s-content__infos"}).a.text.strip()
         print(autoria)
-        infos_gerais = infos_gerais.find("div", attrs={"class": "s-content__infos"}).span.text.strip()
+        infos_gerais =infos_gerais.find("div", attrs={"class": "s-content__infos"}).span.text.strip() #deu certo antes mas n quer dar agora
+        corpo_textual= corpo_textual.find("div", attrs={"class": "content-closed contentOpen"}).p.text.strip()
         
         
         print("#"*10)

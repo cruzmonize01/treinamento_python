@@ -22,14 +22,22 @@ def extrair_infos(html):
         autoria=conteudo.find_all("strong")
         print(autoria)
         print ("###")
-
-
+        corpo_textual=conteudo.find("div", attrs={"class":"td_block_wrap tdb_single_content tdi_66 td-pb-border-top td_block_template_1 td-post-content tagdiv-type"})
+        print(corpo_textual)
+        tag_lista_paragrafos= conteudo.find_all("div", attrs={"class":"td_block_wrap tdb_single_content tdi_66 td-pb-border-top td_block_template_1 td-post-content tagdiv-type"})
+        for tag in tag_lista_paragrafos:
+                try:
+                    paragrafo = tag.p.text.strip()
+                    print(paragrafo)
+                except AttributeError:
+                    continue
 
 
         conteudo = acessar_pagina(link)
     
         
-        print(conteudo)
+        print("#"*10)
+
         
         try:
             autoria = conteudo.find_all("strong")[1].text

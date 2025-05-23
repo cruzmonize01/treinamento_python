@@ -36,7 +36,16 @@ def extrair_infos(html):
                     print(paragrafo)
                 except AttributeError:
                     continue
-                
+        subtitulo=conteudo.find("div", attrs={"class":"content-closed contentOpen"} ).p.text.strip
+        print(subtitulo)
+        tag_lista_subtitulos=conteudo.find_all("div", attrs={"class": "content-closed contentOpen"})
+        for tag in tag_lista_subtitulos:
+                try:
+                    subtitulo= tag.p.text.strip()
+                    print(paragrafo)
+                except AttributeError:
+                    continue
+
         
         
         print("#"*10)

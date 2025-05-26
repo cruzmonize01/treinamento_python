@@ -27,17 +27,18 @@ def extrair_infos(html):
         print(autoria)
         infos_gerais = conteudo.find("div", attrs={"class": "s-content__infos"}).span.text.strip() #deu certo antes mas n quer dar agora
         print(infos_gerais)
-        corpo_textual= conteudo.find("div", attrs={"class": "content-closed contentOpen"}).p.text.strip()
-        print(corpo_textual)
         tag_lista_paragrafos= conteudo.find_all("div", attrs={"class": "content-closed contentOpen"})
+        paragrafos=[]
         for tag in tag_lista_paragrafos:
                 try:
                     paragrafo = tag.p.text.strip()
-                    print(paragrafo)
+                    paragrafos.append(paragrafo)
+                
                 except AttributeError:
                     continue
+        print(paragrafos)
         subtitulo=conteudo.find("div", attrs={"class":"content-closed contentOpen"} ).p.text.strip
-        print(subtitulo)
+        #print(subtitulo)
         print("#"*10)
         tag_lista_subtitulos=conteudo.find_all("div", attrs={"class": "content-closed contentOpen"})
         for tag in tag_lista_subtitulos:

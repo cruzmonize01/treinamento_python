@@ -25,6 +25,16 @@ def extrair_infos(html):
         corpo_textual=conteudo.find("div", attrs={"class":"td_block_wrap tdb_single_content tdi_66 td-pb-border-top td_block_template_1 td-post-content tagdiv-type"})
         print(corpo_textual)
         tag_lista_paragrafos= conteudo.find_all("div", attrs={"class":"td_block_wrap tdb_single_content tdi_66 td-pb-border-top td_block_template_1 td-post-content tagdiv-type"})
+        subtitulo= conteudo.find("div",attrs={"tdb-block-inner td-fix-index"})
+        print(subtitulo)
+        tag_lista_subtitulos=conteudo.find_all("div", attrs={"class": "tdb-block-inner td-fix-index"})
+        for tag in tag_lista_subtitulos:
+            try:
+                subtitulo = tag.b.text.strip()
+                print(subtitulo)
+            except AttributeError:
+                continue
+
         for tag in tag_lista_paragrafos:
                 try:
                     paragrafo = tag.p.text.strip()

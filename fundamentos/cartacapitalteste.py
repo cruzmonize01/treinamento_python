@@ -48,12 +48,22 @@ def extrair_infos(html):
                 except AttributeError:
                     continue
 
-        
+    texto = infos_gerais[0].replace("Por\n", "Por ").strip()
+    partes = [p.strip() for p in texto.split("\n") if p.strip()]
+    print(f"\nPartes encontradas: {partes}")
 
-
-        
-        
-        print("#"*10)
+    if len(partes) >= 2:
+        autor = partes[0].replace("Por ", "")
+        data = partes[1]
+    else:
+        print("❌ Não foi possível encontrar autor e data.")
+        autor = None
+        data = None
+    
+    
+    
+       
+    print("#"*10)
 
 def main():
     link = "https://www.cartacapital.com.br/mais-recentes/page/3"

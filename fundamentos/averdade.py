@@ -23,9 +23,10 @@ def extrair_infos(html):
         print(autoria)
         print ("###")
         tag_lista_paragrafos= conteudo.find_all("div", attrs={"class":"td_block_wrap tdb_single_content tdi_66 td-pb-border-top td_block_template_1 td-post-content tagdiv-type"})
-        paragrafos=[]
+      
         subtitulo= conteudo.find("div",attrs={"tdb-block-inner td-fix-index"})
         print(subtitulo)
+        paragrafos=[ ]
         tag_lista_subtitulos=conteudo.find_all("div", attrs={"class": "tdb-block-inner td-fix-index"})
         for tag in tag_lista_subtitulos:
             try:

@@ -27,6 +27,15 @@ def extrair_infos(html):
         print(autoria)
         infos_gerais = conteudo.find("div", attrs={"class": "s-content__infos"}).span.text.strip() #deu certo antes mas n quer dar agora
         print(infos_gerais)
+        try:
+            data, horario = infos_gerais.split(";")
+        except ValueError:
+            data = infos_gerais
+            horario = None
+
+        print("Data:", data)
+        print("Horário:", horario)
+
         tag_lista_paragrafos= conteudo.find_all("div", attrs={"class": "content-closed contentOpen"})
         paragrafos=[]
         for tag in tag_lista_paragrafos:
@@ -48,20 +57,7 @@ def extrair_infos(html):
                 except AttributeError:
                     continue
 
-    texto = infos_gerais[0].replace("Por\n", "Por ").strip()
-    partes = [p.strip() for p in texto.split("\n") if p.strip()]
-    print(f"\nPartes encontradas: {partes}")
-
-    if len(partes) >= 2:
-        autor = partes[0].replace("Por ", "")
-        data = partes[1]
-    else:
-        print("❌ Não foi possível encontrar autor e data.")
-        autor = None
-        data = None
-    
-    
-    
+   
        
     print("#"*10)
 

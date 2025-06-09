@@ -36,11 +36,11 @@ def extrair_infos(html):
                 continue
 
         for tag in tag_lista_paragrafos:
-                try:
-                    paragrafo = tag.p.text.strip()
-                    print(paragrafo)
-                except AttributeError:
-                    continue
+            try: 
+                tag.p.text.strip()
+                print(paragrafos)
+            except AttributeError:
+                continue
 
 
         conteudo = acessar_pagina(link)

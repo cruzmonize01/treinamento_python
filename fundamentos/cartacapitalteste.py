@@ -7,8 +7,10 @@ def acessar_pagina(link):
     return bs 
 
 def extrair_infos(html):
-    tag_lista_noticias = html.find("section", attrs={"class": "l-list__list"}).find_all("a",attrs= {"class":"l-list__item"})
-    print(f"quantas noticias encontrei? {len(tag_lista_noticias)}")
+    print(html)
+    tag_lista_noticias = html.main.find("section", attrs={"class": "l-list__list"})
+    #print(f"quantas noticias encontrei? {len(tag_lista_noticias)}")
+    print(tag_lista_noticias)
       
     for noticia in tag_lista_noticias:
         try:
@@ -62,7 +64,7 @@ def extrair_infos(html):
     print("#"*10)
 
 def main():
-    link = "https://www.cartacapital.com.br/mais-recentes/page/3"
+    link = "https://www.cartacapital.com.br/mais-recentes/page/3/"
     html = acessar_pagina(link)
     #print(html)
     extrair_infos(html)
